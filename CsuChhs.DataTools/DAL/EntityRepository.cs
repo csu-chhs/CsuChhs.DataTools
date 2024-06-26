@@ -31,30 +31,6 @@ namespace CsuChhs.DataTools.DAL
             _dbContext.SaveChanges();
         }
 
-        public T GetSingle(int id)
-        {
-            return _dbContext.Set<T>()
-                .Single(s => s.ID == id);
-        }
-
-        public async Task<T> GetSingleAsync(int id)
-        {
-            return await _dbContext.Set<T>()
-                .SingleAsync(s => s.ID == id);
-        }
-
-        public T? GetSingleOrNull(int id)
-        {
-            return _dbContext.Set<T>()
-                .SingleOrDefault(s => s.ID == id);
-        }
-
-        public async Task<T?> GetSingleOrNullAsync(int id)
-        {
-            return await _dbContext.Set<T>()
-                .SingleOrDefaultAsync(s => s.ID == id);
-        }
-
         public void Update(T entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
