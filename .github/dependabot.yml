@@ -1,7 +1,20 @@
 version: 2
+registries:
+  public-nuget:
+    type: nuget-feed
+    url: https://api.nuget.org/v3/index.json
+
+  chhs-nuget:
+    type: nuget-feed
+    url: https://nuget.pkg.github.com/csu-chhs/index.json
+    username: dstegelman
+    password: ${{ secrets.DEPENDABOT_NUGET }}
 updates:
 - package-ecosystem: nuget
   directory: "/"
+  registries:
+    - chhs-nuget
+    - public-nuget
   schedule:
     interval: daily
     time: "12:00"
