@@ -20,6 +20,12 @@ namespace CsuChhs.DataTools.DAL
             return entity;
         }
 
+        public T AddBulk(T entity)
+        {
+            _dbContext.Set<T>().Add(entity);
+            return entity;
+        }
+
         public IQueryable<T> AllQueryable()
         {
             return _dbContext.Set<T>();
@@ -28,6 +34,11 @@ namespace CsuChhs.DataTools.DAL
         public void Delete(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
+            _dbContext.SaveChanges();
+        }
+
+        public void SaveChanges()
+        {
             _dbContext.SaveChanges();
         }
 
