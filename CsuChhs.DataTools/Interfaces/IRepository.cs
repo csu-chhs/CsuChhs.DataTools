@@ -8,5 +8,7 @@ namespace CsuChhs.DataTools.Interfaces
         void Update(T entity);
         void Delete(T entity);
         T Add(T entity);
+        T AddBulk(T entity);
+        void SaveChanges();
     }
 }
