@@ -1,5 +1,8 @@
 ### CsuChhs.DataTools
 
+### 1.0.4
+- Added Temporal query support
+
 #### 1.0.3
 - Added bulk insert action that removes save changes.
 

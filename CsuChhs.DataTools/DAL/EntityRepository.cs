@@ -31,6 +31,19 @@ namespace CsuChhs.DataTools.DAL
             return _dbContext.Set<T>();
         }
 
+        public IQueryable<T> TemporalAll()
+        {
+            return _dbContext.Set<T>().TemporalAll();
+        }
+
+        public IQueryable<T> TemporalAllOrdered()
+        {
+            return _dbContext
+                .Set<T>()
+                .TemporalAll()
+                .OrderBy(s => EF.Property<DateTime>(s, "ValidFrom"));
+        }
+
         public void Delete(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
